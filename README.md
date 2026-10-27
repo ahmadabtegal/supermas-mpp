@@ -74,3 +74,12 @@ Pada tab `Pengaturan`, isi `WA_ADMIN` dengan nomor admin format `628xxxxxxxxxx`.
 - Di website, buka menu **Admin Ruang**, masukkan `ADMIN_KEY`, lalu muat data untuk mengedit, menambah, atau menonaktifkan ruang.
 - Foto disimpan sebagai URL gambar publik; tidak diunggah langsung dari formulir. Unggah foto ke folder `assets` pada GitHub, lalu isi URL GitHub Pages di kolom Foto URL.
 - Perbarui deployment Apps Script ke versi baru dan unggah file `index.html` serta folder `assets` ke GitHub Pages.
+
+## Header logo dan halaman admin terpisah
+- `assets/supermas.png` dipakai untuk logo Super Mas dan favicon.
+- `assets/logo-mpp.png` adalah logo MPP Alaya Sewagati yang ditampilkan di sisi kanan header.
+- `admin.html` adalah halaman admin terpisah dari website publik. Setelah GitHub Pages aktif, buka `https://NAMA-USER.github.io/NAMA-REPOSITORY/admin.html`.
+- Halaman admin menyediakan login memakai `ADMIN_KEY`, verifikasi permohonan (Setujui/Tolak), catatan keputusan, dan pengelolaan daftar ruang.
+- Pastikan URL Apps Script `/exec` yang sama diisi pada konstanta `API_URL` dalam `index.html` dan `admin.html`.
+- Di Apps Script > Project Settings > Script Properties, isi `ADMIN_KEY` dengan kunci yang kuat dan rahasia. Login memakai kunci ini untuk memanggil endpoint admin; jangan pernah menyimpan kunci di file HTML atau repository.
+- Saat status permohonan diperbarui, backend mengisi `Tanggal_Verifikasi` dan `Petugas_Verifikasi` serta mencoba mengirim notifikasi Fonnte kepada pemohon.
